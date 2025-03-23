@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Analytics Recruitment Bootcamp</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #2A3052;
+            --secondary-color: #4A8BDF;
+            --accent-color: #F7931A;
+            --light-gray: #F5F7FA;
+            --dark-gray: #333333;
+            --white: #FFFFFF;
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-primary);
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--secondary-color);
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .logo img {
+            height: 40px;
+        }
+        
+        .nav-menu {
+            display: flex;
+        }
+        
+        .nav-item {
+            margin-left: 30px;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark-gray);
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: var(--secondary-color);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+        
+        .btn-primary:hover {
+            background-color: #3a7fd9;
+        }
+        
+        .btn-secondary {
+            background-color: var(--white);
+            color: var(--secondary-color);
+            border: 2px solid var(--secondary-color);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 80px 0;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+        }
+        
+        .hero-title {
+            font-size: 42px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .hero-subtitle {
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: var(--dark-gray);
+        }
+        
+        .hero-image {
+            flex: 1;
+            margin-left: 40px;
+            text-align: center;
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Feature Section */
+        .features {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+        }
+        
+        .section-subtitle {
+            font-size: 20px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            color: var(--dark-gray);
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: var(--light-gray);
+            border-radius: 10px;
+            padding: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 40px;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        .feature-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .feature-description {
+            font-size: 16px;
+            color: #666;
+        }
+        
+        /* Pricing Section */
+        .pricing {
+            background-color: var(--light-gray);
+            padding: 80px 0;
+        }
+        
+        .price-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .price-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .original-price {
+            font-size: 22px;
+            text-decoration: line-through;
+            color: #999;
+            margin-bottom: 10px;
+        }
+        
+        .current-price {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        .price-description {
+            margin-bottom: 30px;
+            font-size: 18px;
+        }
+        
+        /* Timeline Section */
+        .timeline {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .timeline-item {
+            background-color: var(--light-gray);
+            padding: 30px;
+            border-radius: 10px;
+            position: relative;
+        }
+        
+        .timeline-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .timeline-list {
+            margin-top: 20px;
+        }
+        
+        .timeline-list li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .timeline-list li::before {
+            content: "•";
+            color: var(--secondary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            padding: 80px 0;
+            text-align: center;
+            color: var(--white);
+        }
+        
+        .cta-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .cta-subtitle {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+        
+        /* Coaches Section */
+        .coaches {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+        
+        .coach-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+        
+        .coach-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .coach-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .coach-image {
+            height: 250px;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .coach-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .coach-info {
+            padding: 20px;
+        }
+        
+        .coach-name {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+        
+        .coach-role {
+            font-size: 16px;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        .coach-bio {
+            font-size: 16px;
+            color: #666;
+        }
+        
+        /* Syllabus Section */
+        .syllabus {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .week-container {
+            margin-bottom: 40px;
+        }
+        
+        .week-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary-color);
+            color: var(--primary-color);
+        }
+        
+        .class-item {
+            background-color: var(--light-gray);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .class-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .class-topics {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .class-topics li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .class-topics li::before {
+            content: "•";
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .class-resources h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        
+        /* Business Page Styles */
+        .business {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+        
+        .business-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .benefit-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .benefit-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .benefit-description {
+            color: #666;
+        }
+        
+        .testimonial {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding: 0 20px;
+        }
+        
+        .testimonial-text::before,
+        .testimonial-text::after {
+            content: '"';
+            font-size: 50px;
+            color: #e0e0e0;
+            position: absolute;
+        }
+        
+        .testimonial-text::before {
+            left: -15px;
+            top: -20px;
+        }
+        
+        .testimonial-text::after {
+            right: -15px;
+            bottom: -40px;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .testimonial-company {
+            color: var(--secondary-color);
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--white);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        /* Mobile Styles */
+        @media screen and (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+            
+            .nav-menu {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-item {
+                margin: 5px 10px;
+            }
+            
+            .hero-content {
+                flex-direction: column;
+            }
+            
+            .hero-text {
+                margin-bottom: 30px;
+                text-align: center;
+            }
+            
+            .hero-image {
+                margin-left: 0;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .feature-grid, .coach-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-title {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <!-- Leland logo placeholder -->
+                    <img src="/api/placeholder/150/50" alt="Business Analytics Recruitment">
+                </a>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="syllabus.html" class="nav-link">Syllabus</a></li>
+                    <li class="nav-item"><a href="coaches.html" class="nav-link">Coaches</a></li>
+                    <li class="nav-item"><a href="business.html" class="nav-link">For Businesses</a></li>
+                    <li class="nav-item"><a href="#" class="btn btn-primary">Apply Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main content for home page -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Launch Your Career in Business Analytics</h1>
+                    <p class="hero-subtitle">A 4-week intensive bootcamp designed to help you transition into a business analytics role or start your career with confidence.</p>
+                    <a href="#" class="btn btn-primary">Apply Now</a>
+                    <a href="syllabus.html" class="btn btn-secondary" style="margin-left: 10px;">View Syllabus</a>
+                </div>
+                <div class="hero-image">
+                    <img src="/api/placeholder/500/300" alt="Business Analytics Training">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose Our Bootcamp?</h2>
+            <p class="section-subtitle">Gain the skills, confidence, and connections you need to land your dream role in business analytics.</p>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3 class="feature-title">More Affordable</h3>
+                    <p class="feature-description">Our program delivers premium training at a significantly lower cost than other bootcamps and certification programs.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3 class="feature-title">One-on-One Mock Interviews</h3>
+                    <p class="feature-description">Get personalized feedback through realistic interview simulations with experienced hiring managers.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3 class="feature-title">Industry Expert Feedback</h3>
+                    <p class="feature-description">Receive direct guidance from professionals who have worked at top companies in business analytics roles.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3 class="feature-title">AI in Business Analytics</h3>
+                    <p class="feature-description">Learn how to leverage the latest AI tools and technologies to enhance your analytical capabilities and stand out to employers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing">
+        <div class="container">
+            <h2 class="section-title">Affordable Investment in Your Future</h2>
+            
+            <div class="price-card">
+                <h3 class="price-title">Business Analytics Recruitment Bootcamp</h3>
+                <p class="original-price">$3,500</p>
+                <p class="current-price">$2,750</p>
+                <p class="price-description">Early Bird Special - Limited Time Offer</p>
+                <a href="#" class="btn btn-primary">Secure Your Spot</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="timeline">
+        <div class="container">
+            <h2 class="section-title">Program Structure</h2>
+            <p class="section-subtitle">Intensive 4-week program with twice-weekly sessions designed to transform your career prospects.</p>
+            
+            <div class="timeline-grid">
+                <div class="timeline-item">
+                    <h3 class="timeline-title">Program Length</h3>
+                    <p>4 weeks of intensive training</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="timeline-title">Class Schedule</h3>
+                    <p>2 sessions per week</p>
+                    <p>1.5-2 hours per session</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="timeline-title">Course Format</h3>
+                    <ul class="timeline-list">
+                        <li>Live, interactive online sessions</li>
+                        <li>Hands-on workshops</li>
+                        <li>Real-world case studies</li>
+                        <li>One-on-one coaching</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="timeline-title">Post-Program Support</h3>
+                    <ul class="timeline-list">
+                        <li>Resume review</li>
+                        <li>LinkedIn profile optimization</li>
+                        <li>Interview preparation</li>
+                        <li>Job search strategy</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2 class="cta-title">Ready to Transform Your Career?</h2>
+            <p class="cta-subtitle">Spaces are limited for our next cohort. Apply now to secure your spot and take the first step toward your new career in business analytics.</p>
+            <a href="#" class="btn btn-secondary">Apply Now</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Business Analytics Recruitment</h3>
+                    <p>Transforming careers through expert-led training and personalized coaching.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="syllabus.html">Syllabus</a></li>
+                        <li><a href="coaches.html">Coaches</a></li>
+                        <li><a href="business.html">For Businesses</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:info@babootcamp.com">info@babootcamp.com</a></li>
+                        <li><a href="tel:+11234567890">(123) 456-7890</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Business Analytics Recruitment. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
